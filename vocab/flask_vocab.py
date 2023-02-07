@@ -111,7 +111,6 @@ def check():
     if matched and in_jumble and not (text in matches):
         matches.append(text)
         flask.session["matches"] = matches
-        
         res["message"] = ""
     
     elif text in matches:
