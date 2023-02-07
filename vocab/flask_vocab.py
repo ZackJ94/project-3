@@ -76,9 +76,7 @@ def success():
 
 
 #######################
-# Form handler.
-#   You'll need to change this to a
-#   a JSON request handler
+# JSON request handler
 #######################
 
 @app.route("/_check")
@@ -92,7 +90,6 @@ def check():
     already found.
     """
 
-    # TODO: change all docstrings and comments to be accurate
     app.logger.debug("Entering check")
 
     # The data we need
@@ -135,20 +132,7 @@ def check():
 
     res["matches"] = matches
     return flask.jsonify(result = res)
-        
-###############
-# AJAX request handlers
-#   These return JSON, rather than rendering pages.
-###############
 
-@app.route("/_example")
-def example():
-    """
-    Example ajax request handler
-    """
-    app.logger.debug("Got a JSON request")
-    rslt = {"key": "value"}
-    return flask.jsonify(result=rslt)
 
 #################
 # Functions used within the templates
@@ -162,10 +146,10 @@ def format_filt(something):
     """
     return "Not what you asked for"
 
+
 ###################
 #   Error handlers
 ###################
-
 
 @app.errorhandler(404)
 def error_404(e):
@@ -187,6 +171,7 @@ def error_403(e):
 
 
 #############
+
 
 if __name__ == "__main__":
     if CONFIG.DEBUG:
